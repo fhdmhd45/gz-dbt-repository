@@ -8,12 +8,29 @@ sources:
     - name: product
       description: Greenweez product info
       identifier: raw_gz_product
+      tests:
+        - unique:
+            column_name: product_id
+                  
     - name: sales
       description: Greenweez sales info
       identifier: raw_gz_sales
+      columns:
+        - name: date_date
+          description: the date of purchase
+           tests:
+          - unique:
+              column_name: "(pdt_id ||'-'|| orders_id)"
     - name: ship
       description: Greenweez shipping info
       identifier: raw_gz_ship
+       columns:
+         - name: orders_id
+          description : order id
+           tests:
+          - unique:
+              column_name: orders_id
+        
 
 
 
