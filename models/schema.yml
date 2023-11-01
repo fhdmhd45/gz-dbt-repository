@@ -21,6 +21,9 @@ sources:
       tests:
         - unique:
             column_name: "(pdt_id ||'-'|| orders_id)"
+      freshness:
+        warn_after: {count: 90, period: day}
+      loaded_at_field: "CAST (date_date AS TIMESTAMP)"
       columns:
         - name: date_date
           description: the date of purchase
@@ -28,6 +31,8 @@ sources:
         - name: pdt_id as products_id
         - name: revenue
         - name: quantity
+        
+        
  
     - name: ship
       description: Greenweez shipping info
