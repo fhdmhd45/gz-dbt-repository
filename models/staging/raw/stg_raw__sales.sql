@@ -9,11 +9,11 @@ source as (
 renamed as (
 
     select
-        date_date,
-        orders_id,
-        pdt_id as products_id,
-        revenue,
-        quantity
+        CAST(date_date as date) date,
+        CAST(orders_id as string) orders_id,
+        CAST(pdt_id as string) products_id,
+        CAST(revenue as float64) revenue,
+        CAST(quantity as int64) quantity
 
     from source
 
